@@ -24,7 +24,7 @@ jobs:
         env:
           NAME: "junil"
         run: |
-          echo "이름: $NAME"
+          node -p "process.env.NAME"
 
   lint:
     runs-on: ubuntu-latest
