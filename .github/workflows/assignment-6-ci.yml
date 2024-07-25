@@ -20,11 +20,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: "main step"
+        id: main_step
+        run: |
+          echo "::set-output name=NAME::junil"
+
       - name: job1 구현
         env:
           NAME: "junil"
         run: |
-          node -p "process.env.NAME"
+          echo "name: ${{ steps.main_step.outputs.NAME }}"
 
   lint:
     runs-on: ubuntu-latest
